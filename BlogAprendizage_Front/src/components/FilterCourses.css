@@ -1,0 +1,21 @@
+.filter-courses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.filter-courses button {
+  background-color: var(--card);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: background-color 0.2s ease;
+}
+
+.filter-courses button.active,
+.filter-courses button:hover {
+  background-color: var(--primary);
+  color: white;
+}

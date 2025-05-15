@@ -1,0 +1,45 @@
+.details-publication {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}
+
+.details-publication h2 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.details-publication p {
+  margin-bottom: 1rem;
+}
+
+.comment-form {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.comment-form input,
+.comment-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.comment-form button {
+  align-self: flex-start;
+  padding: 0.6rem 1.5rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.comment-form button:hover {
+  background-color: var(--secondary);
+}

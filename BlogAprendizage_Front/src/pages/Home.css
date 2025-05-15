@@ -1,0 +1,29 @@
+.home-container {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.home-container h1 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.home-container p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.home-container button {
+  padding: 0.8rem 2rem;
+  background-color: var(--primary);
+  border: none;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.home-container button:hover {
+  background-color: var(--secondary);
+}

@@ -52,18 +52,15 @@ export const getAll = async(req, res)=>{
                 }
             )
         }
-        
-        const formattedPublications = publications.map(pub => ({
-            ...pub.toObject(),
-            dateFormatted: new Date(pub.date).toLocaleString()
-        }));
 
-        return res.send({
-            success: true,
-            message: 'Publications found:',
-            total: formattedPublications.length + ' publications',
-            publications: formattedPublications
-        });
+        return res.send(
+            {
+                success: true,
+                message: 'Publications found:',
+                total: publications.length + ' publications',
+                publications
+            }
+        )
  
     }catch(err){
         console.error(err)
@@ -81,8 +78,6 @@ export const getPublication = async(req, res)=>{
     try {
         let {id} = req.params
         let publication = await Publication.findById(id)
-            .populate('category','name -_id')
-            .populate('user','username -_id')
             
         if(!publication)
         return res.status(404).send(

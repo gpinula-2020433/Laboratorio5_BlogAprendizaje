@@ -23,10 +23,6 @@ const publicationSchema = Schema(
             type: String,
             trim: true,
             required: [true, 'Author is required'],
-        },
-        date: {
-            type: Date,
-            default: Date.now
         }
     },
     {

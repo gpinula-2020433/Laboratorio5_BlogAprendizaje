@@ -17,10 +17,6 @@ const commentSchema = Schema(
             type: Schema.Types.ObjectId,
             ref: 'Publication',
             required: [true, 'Publication is required']
-        },
-        date: {
-            type: Date,
-            default: Date.now
         }
     },
     {

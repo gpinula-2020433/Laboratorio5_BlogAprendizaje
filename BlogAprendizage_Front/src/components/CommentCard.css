@@ -1,0 +1,21 @@
+.comment-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.comment-header strong {
+  color: var(--primary);
+}
+
+.comment-card p {
+  font-size: 0.95rem;
+}

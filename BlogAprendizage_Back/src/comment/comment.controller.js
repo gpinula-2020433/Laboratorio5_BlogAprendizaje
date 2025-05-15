@@ -12,8 +12,6 @@ export const save = async(req, res) => {
                 }
             )
         }
-
-        data.user = req.user.uid
         const comment = new Comment(data)
         await comment.save()
         return res.send(
@@ -42,8 +40,6 @@ export const getAll = async(req, res)=>{
         const comments = await Comment.find()
             .skip(skip)
             .limit(limit)
-            .populate('publication','title -_id')
-            .populate('user','username -_id')
 
         if(comments.length === 0){
             return res.status(404).send(
@@ -80,7 +76,6 @@ export const getComment = async(req, res)=>{
         let {id} = req.params
         let comment = await Comment.findById(id)
             .populate('publication','title -_id')
-            .populate('user','username -_id')
 
         if(!comment)
         return res.status(404).send(

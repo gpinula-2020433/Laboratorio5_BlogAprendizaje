@@ -9,6 +9,8 @@ import commentRoutes from '../src/comment/comment.routes.js'
 import publicationRoutes from '../src/publication/publication.routes.js'
 import { limiter } from '../middlewares/rate.limit.js'
 
+import { createDefaultPublications } from '../src/publication/publication.controller.js'
+
 const configs = (app)=>{
     app.use(express.json())
     app.use(express.urlencoded({extended: false}))
@@ -31,6 +33,7 @@ export const initServer =()=>{
         routes(app)
         app.listen(process.env.PORT)
         console.log(`Server running in port: ${process.env.PORT}`)
+        createDefaultPublications()
     }catch(err){
         console.error('Server init failed', err)
     }

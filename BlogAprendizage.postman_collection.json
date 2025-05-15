@@ -1,0 +1,235 @@
+{
+	"info": {
+		"_postman_id": "9aed2c76-de11-4daa-866a-1cdb816f4124",
+		"name": "BlogAprendizage",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37957002"
+	},
+	"item": [
+		{
+			"name": "Publication Copy",
+			"item": [
+				{
+					"name": "getPublications",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3200/v1/publication/",
+							"host": [
+								"localhost"
+							],
+							"port": "3200",
+							"path": [
+								"v1",
+								"publication",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "savePublicationTaller",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "title",
+									"value": "Inteligencia Artificial",
+									"type": "text"
+								},
+								{
+									"key": "mainText",
+									"value": "La inteligencia artificial está transformando diversas industrias mediante el uso de algoritmos que permiten a las máquinas aprender de datos. Su aplicación abarca desde asistentes virtuales hasta sistemas de recomendación, análisis predictivo y vehículos autónomos. Aunque representa una gran oportunidad de innovación, también plantea preocupaciones éticas como el uso de datos personales, la automatización del empleo y la toma de decisiones automatizada. Es fundamental abordar estos temas desde una perspectiva crítica y responsable.\",",
+									"type": "text"
+								},
+								{
+									"key": "course",
+									"value": "Taller",
+									"type": "text"
+								},
+								{
+									"key": "author",
+									"value": "Pinula",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3200/v1/publication/",
+							"host": [
+								"localhost"
+							],
+							"port": "3200",
+							"path": [
+								"v1",
+								"publication",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getPublicationID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3200/v1/publication/6824348170e1ebd7ef5fc842",
+							"host": [
+								"localhost"
+							],
+							"port": "3200",
+							"path": [
+								"v1",
+								"publication",
+								"6824348170e1ebd7ef5fc842"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment Copy",
+			"item": [
+				{
+					"name": "getComments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3200/v1/comment/",
+							"host": [
+								"localhost"
+							],
+							"port": "3200",
+							"path": [
+								"v1",
+								"comment",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "saveComment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "publication",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "comment",
+									"value": "La inteligencia artificial está transformando diversas industrias mediante el uso de algoritmos que permiten a las máquinas aprender de datos. Su aplicación abarca desde asistentes virtuales hasta sistemas de recomendación, análisis predictivo y vehículos autónomos. Aunque representa una gran oportunidad de innovación, también plantea preocupaciones éticas como el uso de datos personales, la automatización del empleo y la toma de decisiones automatizada. Es fundamental abordar estos temas desde una perspectiva crítica y responsable.",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "User1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3200/v1/comment/",
+							"host": [
+								"localhost"
+							],
+							"port": "3200",
+							"path": [
+								"v1",
+								"comment",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCommentID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3200/v1/comment/68257ef43eaedeae7d89a13b",
+							"host": [
+								"localhost"
+							],
+							"port": "3200",
+							"path": [
+								"v1",
+								"comment",
+								"68257ef43eaedeae7d89a13b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

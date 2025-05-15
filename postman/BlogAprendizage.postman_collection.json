@@ -7,7 +7,7 @@
 	},
 	"item": [
 		{
-			"name": "Publication Copy",
+			"name": "Publication",
 			"item": [
 				{
 					"name": "getPublications",
@@ -105,7 +105,7 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3200/v1/publication/6824348170e1ebd7ef5fc842",
+							"raw": "localhost:3200/v1/publication/68258618160378a8d8f3ff9a",
 							"host": [
 								"localhost"
 							],
@@ -113,7 +113,7 @@
 							"path": [
 								"v1",
 								"publication",
-								"6824348170e1ebd7ef5fc842"
+								"68258618160378a8d8f3ff9a"
 							]
 						}
 					},
@@ -122,8 +122,93 @@
 			]
 		},
 		{
-			"name": "Comment Copy",
+			"name": "Comment",
 			"item": [
+				{
+					"name": "saveComment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "publication",
+									"value": "68258e6b860e31eff7223b78",
+									"type": "text"
+								},
+								{
+									"key": "comment",
+									"value": "Comment",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "User",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3200/v1/comment/",
+							"host": [
+								"localhost"
+							],
+							"port": "3200",
+							"path": [
+								"v1",
+								"comment",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "filterComments",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "localhost:3200/v1/comment/filter?publication=68258e6b860e31eff7223b78",
+							"host": [
+								"localhost"
+							],
+							"port": "3200",
+							"path": [
+								"v1",
+								"comment",
+								"filter"
+							],
+							"query": [
+								{
+									"key": "publication",
+									"value": "68258e6b860e31eff7223b78"
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "getComments",
 					"protocolProfileBehavior": {
@@ -158,52 +243,6 @@
 					"response": []
 				},
 				{
-					"name": "saveComment",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "authorization",
-								"value": "{{token}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "publication",
-									"value": "",
-									"type": "text"
-								},
-								{
-									"key": "comment",
-									"value": "La inteligencia artificial está transformando diversas industrias mediante el uso de algoritmos que permiten a las máquinas aprender de datos. Su aplicación abarca desde asistentes virtuales hasta sistemas de recomendación, análisis predictivo y vehículos autónomos. Aunque representa una gran oportunidad de innovación, también plantea preocupaciones éticas como el uso de datos personales, la automatización del empleo y la toma de decisiones automatizada. Es fundamental abordar estos temas desde una perspectiva crítica y responsable.",
-									"type": "text"
-								},
-								{
-									"key": "username",
-									"value": "User1",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "localhost:3200/v1/comment/",
-							"host": [
-								"localhost"
-							],
-							"port": "3200",
-							"path": [
-								"v1",
-								"comment",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "getCommentID",
 					"request": {
 						"method": "GET",
@@ -215,7 +254,7 @@
 							}
 						],
 						"url": {
-							"raw": "localhost:3200/v1/comment/68257ef43eaedeae7d89a13b",
+							"raw": "localhost:3200/v1/comment/68258e6b860e31eff7223b78",
 							"host": [
 								"localhost"
 							],
@@ -223,7 +262,7 @@
 							"path": [
 								"v1",
 								"comment",
-								"68257ef43eaedeae7d89a13b"
+								"68258e6b860e31eff7223b78"
 							]
 						}
 					},

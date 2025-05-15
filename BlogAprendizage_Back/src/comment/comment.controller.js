@@ -95,3 +95,40 @@ export const getComment = async(req, res)=>{
         )
     }
 }
+
+// Obtener comentarios con filtro opcional por publication (usando req.query)
+export const getAllCommentsFilter = async (req, res) => {
+    try {
+        const { publication } = req.query  // <-- CAMBIO AQUÍ
+
+        let filter = {}
+        if (publication) {
+            filter.publication = publication
+        }
+
+        const comments = await Comment.find(filter).sort({ createdAt: -1 })
+            .populate('publication', 'title -_id')
+
+        if (comments.length === 0) {
+            return res.status(404).send({
+                success: false,
+                message: 'Comments not found'
+            })
+        }
+
+        return res.send({
+            success: true,
+            message: 'Comments found',
+            total: comments.length,
+            comments
+        })
+
+    } catch (err) {
+        console.error(err)
+        return res.status(500).send({
+            success: false,
+            message: 'General error when fetching comments',
+            err
+        })
+    }
+}

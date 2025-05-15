@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import {
     getPublicationById,
-    getComments,
+    getCommentsByPublication,
     createComment
 } from '../service/api'
 import CommentCard from '../components/CommentCard'
@@ -21,10 +21,10 @@ const DetailsPublication = () => {
                 setPublication(pubRes)
             }
 
-            const commentsRes = await getComments()
+            const commentsRes = await getCommentsByPublication(id)
             if (!commentsRes.error) {
-                const related = commentsRes.filter(c => c.publication === id)
-                setComments(related.reverse()) // Mostrar más recientes primero
+                const sorted = commentsRes.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+                setComments(sorted)
             }
         }
 

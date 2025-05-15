@@ -9,7 +9,7 @@ const apiClient = axios.create(
 
 export const getPublications = async () => {
     try {
-        const res = await apiClient.get('/publication')  // Cambié a /publications
+        const res = await apiClient.get('/publication')
         return res.data.publications
     } catch (err) {
         return {
@@ -21,66 +21,8 @@ export const getPublications = async () => {
 
 export const getPublicationById = async (id) => {
     try {
-        const res = await apiClient.get(`/publication/${id}`)  // /publication se mantiene para ID
-        return res.data.publication  // Cambié a res.data.publication
-    } catch(err) {
-        return {
-            error: true,
-            err
-        }
-    }
-}
-
-export const createPublication = async (publicationData) => {
-    try {
-        return await apiClient.post('/publication', publicationData)
-    } catch(err) {
-        return {
-            error: true,
-            err
-        }
-    }
-}
-
-export const updatePublication = async (id, publicationData) => {
-    try {
-        return await apiClient.put(`/publication/${id}`, publicationData)
-    } catch(err) {
-        return {
-            error: true,
-            err
-        }
-    }
-}
-
-export const deletePublication = async (id) => {
-    try {
-        return await apiClient.delete(`/publication/${id}`)
-    } catch(err) {
-        return {
-            error: true,
-            err
-        }
-    }
-}
-
-
-export const getComments = async () => {
-    try {
-        const res = await apiClient.get('/comment')  // Cambié a /comments
-        return res.data.comments
-    } catch(err) {
-        return {
-            error: true,
-            err
-        }
-    }
-}
-
-export const getCommentById = async (id) => {
-    try {
-        const res = await apiClient.get(`/comment/${id}`)  // /comment se mantiene para ID
-        return res.data.comment  // Cambié a res.data.comment
+        const res = await apiClient.get(`/publication/${id}`)
+        return res.data.publication
     } catch(err) {
         return {
             error: true,
@@ -101,10 +43,10 @@ export const createComment = async (commentData) => {
     }
 }
 
-
-export const updateComment = async (id, commentData) => {
+export const getComments = async () => {
     try {
-        return await apiClient.put(`/comment/${id}`, commentData)
+        const res = await apiClient.get('/comment')
+        return res.data.comments
     } catch(err) {
         return {
             error: true,
@@ -113,10 +55,23 @@ export const updateComment = async (id, commentData) => {
     }
 }
 
-export const deleteComment = async (id) => {
+export const getCommentById = async (id) => {
     try {
-        return await apiClient.delete(`/comment/${id}`)
+        const res = await apiClient.get(`/comment/${id}`)
+        return res.data.comment
     } catch(err) {
+        return {
+            error: true,
+            err
+        }
+    }
+}
+
+export const getCommentsByPublication = async (publicationId) => {
+    try {
+        const res = await apiClient.get(`/comment/filter?publication=${publicationId}`)
+        return res.data.comments
+    } catch (err) {
         return {
             error: true,
             err

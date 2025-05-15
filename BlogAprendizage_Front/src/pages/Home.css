@@ -1,6 +1,14 @@
 .home-container {
   padding: 3rem 2rem;
   text-align: center;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  height: 80vh;
+  box-sizing: border-box;
 }
 
 .home-container h1 {
@@ -22,6 +30,7 @@
   font-weight: 600;
   border-radius: 8px;
   transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 
 .home-container button:hover {

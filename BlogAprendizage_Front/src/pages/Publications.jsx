@@ -13,8 +13,10 @@ const Publications = () => {
         const fetchData = async () => {
             const res = await getPublications()
             if (!res.error) {
-                setPublications(res)
-                setFiltered(res)
+                // Ordenar por fecha descendente
+                const sorted = res.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+                setPublications(sorted)
+                setFiltered(sorted)
             }
         }
         fetchData()
@@ -22,8 +24,15 @@ const Publications = () => {
 
     const handleFilter = (course) => {
         setActiveCourse(course)
-        if (course === '') setFiltered(publications)
-        else setFiltered(publications.filter(pub => pub.course === course))
+        if (course === '') {
+            setFiltered(publications)
+        } else {
+            // Filtrar y ordenar también las publicaciones filtradas
+            const filteredAndSorted = publications
+                .filter(pub => pub.course === course)
+                .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+            setFiltered(filteredAndSorted)
+        }
     }
 
     return (

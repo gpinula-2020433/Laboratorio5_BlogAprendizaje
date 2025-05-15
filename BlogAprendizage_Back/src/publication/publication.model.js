@@ -6,8 +6,7 @@ const publicationSchema = Schema(
             type: String,
             maxLength: [45, `Can't be overcome 45 characters`],
             required: [true, 'Title is required'],
-            trim: true,
-            unique: [true, 'Title already taken']
+            trim: true
         },
         mainText: {
             type: String,

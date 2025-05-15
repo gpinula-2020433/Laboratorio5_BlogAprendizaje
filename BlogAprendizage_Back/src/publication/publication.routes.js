@@ -2,17 +2,14 @@ import { Router } from "express";
 import {
     getAll,
     getPublication,
-    save,
-    updatePublication,
-    deletePublication
+    save
 } from './publication.controller.js'
+import { registerPublicationValidator } from "../../middlewares/validators.js";
 
 const api = Router()
 
 api.get('/', getAll)
 api.get('/:id', getPublication)
-api.post('/', save)
-api.put('/:id', updatePublication)
-api.delete('/:id', deletePublication)
+api.post('/', [registerPublicationValidator], save)
 
 export default api

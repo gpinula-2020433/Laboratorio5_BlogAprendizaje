@@ -2,17 +2,14 @@ import { Router } from "express";
 import {
     getAll,
     getComment,
-    save,
-    updateComment,
-    deleteComment
+    save
 } from './comment.controller.js'
+import { registerCommentValidator } from "../../middlewares/validators.js";
 
 const api = Router()
 
 api.get('/', getAll)
-api.get('/:id', getComment)
-api.post('/', save)
-api.put('/:id', updateComment)
-api.delete('/:id', deleteComment)
+api.get('/:id',  getComment)
+api.post('/', [registerCommentValidator], save)
 
 export default api

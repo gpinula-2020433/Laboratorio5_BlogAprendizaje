@@ -5,7 +5,12 @@ import './PublicationCard.css'
 const PublicationCard = ({ publication }) => {
     const navigate = useNavigate()
     const { title, author, course, createdAt, _id } = publication
-    const date = new Date(createdAt).toLocaleDateString('es-ES')
+
+    const date = new Date(createdAt).toLocaleDateString('es-ES', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    })
 
     return (
         <div className="publication-card" onClick={() => navigate(`/publications/${_id}`)}>

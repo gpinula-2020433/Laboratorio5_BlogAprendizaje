@@ -1,14 +1,15 @@
-/* Fuentes y base */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 :root {
-  --bg: #f9f9fb;
-  --primary: #4a4e69;
-  --secondary: #9a8c98;
-  --accent: #c9ada7;
-  --text: #2a2a2a;
+  --bg-gradient: linear-gradient(135deg, #edf2f4, #dee2ff);
   --card: #ffffff;
-  --border: #e0e0e0;
+  --text: #2d2d2d;
+  --primary: #0e81ab;
+  --secondary: #395bf1;
+  --accent: #1737b5;
+  --border: #d0d0d0;
+  --shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  --transition: all 0.25s ease;
 }
 
 * {
@@ -19,18 +20,20 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: var(--bg);
+  background: var(--bg-gradient);
   color: var(--text);
+  min-height: 100vh;
   line-height: 1.6;
 }
 
 a {
   color: var(--primary);
   text-decoration: none;
+  transition: var(--transition);
 }
 
 button {
   cursor: pointer;
   font-family: inherit;
+  transition: var(--transition);
 }
-

@@ -2,13 +2,13 @@ import React from 'react'
 import './CommentCard.css'
 
 const CommentCard = ({ username, comment, createdAt }) => {
-    const date = createdAt
-        ? new Date(createdAt).toLocaleDateString('es-ES', {
-            year: 'numeric',
-            month: 'short',
-            day: '2-digit'
-        })
-        : 'Fecha inválida'
+    const date = new Date(createdAt).toLocaleDateString('es-ES', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    })
 
     return (
         <div className="comment-card">
@@ -16,7 +16,7 @@ const CommentCard = ({ username, comment, createdAt }) => {
                 <strong>{username}</strong>
                 <span>{date}</span>
             </div>
-            <p>{typeof comment === 'string' ? comment : JSON.stringify(comment)}</p>
+            <p>{comment}</p>
         </div>
     )
 }

@@ -1,9 +1,11 @@
 .comment-card {
-  background-color: var(--card);
+  background-color: white;
   border: 1px solid var(--border);
   padding: 1rem;
-  border-radius: 10px;
+  border-radius: 12px;
   margin-top: 1rem;
+  box-shadow: var(--shadow);
+  animation: fadeIn 0.3s ease;
 }
 
 .comment-header {
@@ -18,4 +20,5 @@
 
 .comment-card p {
   font-size: 0.95rem;
+  color: #333;
 }

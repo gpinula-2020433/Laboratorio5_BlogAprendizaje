@@ -61,7 +61,7 @@ export const objectIdValid = (objectId) => {
     throw new Error(`The value of field is not a valid ObjectId`)
   }
 }
-}
+
 
 // Validar el tipo de pago (CASH o CARD)
 export const validatePaymentType = (type) => {

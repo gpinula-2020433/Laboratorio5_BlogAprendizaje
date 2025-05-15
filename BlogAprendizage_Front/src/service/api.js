@@ -92,8 +92,8 @@ export const getCommentById = async (id) => {
 export const createComment = async (commentData) => {
     try {
         const res = await apiClient.post('/comment', commentData)
-        return res.data.comment // ⬅️ solo el comentario
-    } catch(err) {
+        return res.data.comment
+    } catch (err) {
         return {
             error: true,
             err
